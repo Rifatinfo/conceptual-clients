@@ -31,7 +31,9 @@ const AddProduct = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            if(data.insertedId){
+               alert("insert complete")
+            }
         })
     };
 

@@ -8,6 +8,7 @@ const Header = () => {
         { name: 'Home', link: '/' },
         { name: 'Add Product', link: '/add-product' },
         { name: 'Add To Cart', link: '/add-to-cart' },
+        { name: 'SignIn', link: '/signIn' },
     ];
 
     const [open, setOpen] = useState(false);
