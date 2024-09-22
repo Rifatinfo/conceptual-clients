@@ -1,16 +1,38 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 const AddProduct = () => {
+     
+    const {user} = useContext(AuthContext);
+    console.log(user.email);
+
     const handleAddProduct = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const brand = form.brand.value;
         const price = form.price.value;
-        const imageUrl = form.image.value; // Correct name
+        const imageUrl = form.image.value; 
         const type = form.type.value;
         const rating = form.rating.value;
+        const email = user.email;
+
+         
         console.log(name, brand, price, imageUrl, type, rating);
-        const info = {name,brand,price,imageUrl,type,rating}
+        const info = {name,brand,price,imageUrl,type,rating, email}
         console.log(info)
+
+        fetch("http://localhost:5000/addProduct", {
+            method : "POST",
+            headers  : {
+                "Content-type" : "application/json"
+            },
+            body : JSON.stringify(info)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     };
 
     return (
