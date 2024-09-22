@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import  { AuthContext } from "../../Provider/AuthProvider";
 
 const AddProduct = () => {
-     
     const {user} = useContext(AuthContext);
     console.log(user.email);
 
@@ -18,9 +17,9 @@ const AddProduct = () => {
         const email = user.email;
 
          
-        console.log(name, brand, price, imageUrl, type, rating);
+        console.log(name, brand, price, imageUrl, type, rating, email);
         const info = {name,brand,price,imageUrl,type,rating, email}
-        console.log(info)
+        console.log(info);
 
         fetch("http://localhost:5000/addProduct", {
             method : "POST",
